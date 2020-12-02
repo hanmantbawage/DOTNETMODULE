@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +17,11 @@ namespace Assign01_Emp
             Console.WriteLine(o1.EMPNO);
             Console.WriteLine(o2.EMPNO);
             Console.WriteLine(o3.EMPNO);
+
+
+            Console.WriteLine(o3.EMPNO);
+            Console.WriteLine(o2.EMPNO);
+            Console.WriteLine(o1.EMPNO);
             Console.ReadLine();
         }
     }
@@ -29,26 +34,8 @@ namespace Assign01_Emp
         short DeptNo;
         double Salary;
         #region constructor
-        public Employee()
-        {
-            E = E + 1;
-            EmpNo = E ;
-        }
-        public Employee(string s)
-        {
-            E = E + 1;
-            EmpNo = E;
-            Name = s;
-        }
-        public Employee(string s, int no)
-        {
-            E = E + 1;
-            EmpNo = E;
-            Name = s;
-            Basic = no;
-
-        }
-        public Employee(string s, int no, short dno)
+        
+        public Employee(string s="NO Name", int no=10000, short dno=5)
         {
             E = E + 1;
             EmpNo = E;
