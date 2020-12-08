@@ -1,115 +1,67 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assign01_Emp
+namespace Assignment5
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main    (string[] args)
         {
-            Employee o1 = new Employee();
-            Employee o2 = new Employee();
-            Employee o3 = new Employee();
+            Func<decimal, decimal, decimal, decimal> si = (P, N, R) => P * N * (R / 100);
+            Console.WriteLine(si(10000, 1, 6));
 
-            Console.WriteLine(o1.EMPNO);
-            Console.WriteLine(o2.EMPNO);
-            Console.WriteLine(o3.EMPNO);
+            Func<int, int, bool> s1 = (x, y) => x > y ? true : false;
+            Console.WriteLine(s1(45, 47));
+           
+            Employee e1 = new Employee("hanmant", 5000);
+            Func<Employee, int> e2 = x => x.Basic;
+            Console.WriteLine(e2(e1));
 
+            Func<Employee, bool> e3 = x => x.Basic>10000?true:false;
+            Console.WriteLine(e3(e1));
+          
 
-            Console.WriteLine(o3.EMPNO);
-            Console.WriteLine(o2.EMPNO);
-            Console.WriteLine(o1.EMPNO);
+            Func<int, bool> r = r1 => (r1 % 2) == 0 ? true : false;
+            Console.WriteLine(r(11));
+
             Console.ReadLine();
         }
-    }
-    class Employee
-    {
-        string Name = "";
-        static int E=0;
-        int EmpNo;
-        decimal Basic;
-        short DeptNo;
-        double Salary;
-        #region constructor
-        
-        public Employee(string s="NO Name", int no=10000, short dno=5)
+      public class Employee
         {
-            E = E + 1;
-            EmpNo = E;
-            Name = s;
-            Basic = no;
-            DeptNo = dno;
-        }
-        #endregion
-
-
-        public String NAME
-        {
-            set
+            private String ename;
+            private int basic;
+            public Employee(string ename,int basic)
             {
-                if (value == "")
+                this.ename = ename;
+                this.basic = basic;
+
+            }
+            public String Ename
+            {
+                set
                 {
-                    Console.WriteLine("Invalid Data..!!!!!!!");
+                    ename = value;
                 }
-                else
+                get
                 {
-                    Name = value;
-                   
+                    return ename;
                 }
             }
-            get
+            public int Basic 
             {
-                return Name;
-            }
-        }
-
-        public  int EMPNO
-        
-        {
-           
-            get
-            {
-                return EmpNo;
-            }
-        }
-        public Double SALARY
-        {
-            set
-            {
-
-                if (value > 15000 )
+                set
                 {
-                    Salary = (Double)value * 1.35;
-
+                    basic = value;
                 }
-                else 
+                get
                 {
-                    Salary = (Double)value * 1.50;
-
+                    return basic;
                 }
             }
-            get
-            {
-                return Salary;
-            }
-        }
 
-        public short DEPTNO
-        {
-            set
-            {
-                if (value > 0)
-                {
-                    DeptNo = value;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid DeptNO..!!!!!!!");
-                }
-            }
 
         }
     }
